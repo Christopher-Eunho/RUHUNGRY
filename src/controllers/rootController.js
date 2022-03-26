@@ -36,12 +36,6 @@ export const handlePost = async (req, res) => {
     const phone_number = result.display_phone;
     const price = result.price;
 
-    // const alias = result.alias;
-    // const response2 = await client.business(alias);
-    // const details = await response2.jsonBody;
-    // const d = new Date();
-    // console.log(details.hours.open[d.getDay()]);
-
     const location_array = result.location.display_address;
     let result_location = "";
     for (let i = 0; i < (location_array.length - 1); i++) {
