@@ -39,7 +39,7 @@ export const handlePost = async (req, res) => {
       const count = Object.keys(response.jsonBody.businesses).length;
       const randomResult = Math.floor(Math.random() * count);
       const firstResult = await response.jsonBody.businesses[randomResult]
-      const restaurantURL = await genGoogleLink(firstResult.longitude, firstResult.latitude, firstResult.name);
+      const restaurantURL = await genGoogleLink(firstResult.coordinates.latitude, firstResult.coordinates.longitude, firstResult.name);
       
     
       console.log(firstResult);
