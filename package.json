@@ -1,0 +1,29 @@
+{
+  "name": "ruhungry",
+  "version": "1.0.0",
+  "description": "bcs hackathon",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Christopher-Eunho/RUHUNGRY.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Christopher-Eunho/RUHUNGRY/issues"
+  },
+  "homepage": "https://github.com/Christopher-Eunho/RUHUNGRY#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "yelp-fusion": "^3.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/node": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "nodemon": "^2.0.15"
+  }
+}

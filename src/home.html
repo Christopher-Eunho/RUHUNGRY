@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app.css">
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <!-- Bootstrap CSS
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    
+        <!-- Google Fonts: -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=Merriweather:wght@300;400;900&family=PT+Serif&family=Playfair+Display:wght@500&family=Shippori+Antique+B1&display=swap"
+        rel="stylesheet">
+
+    <!-- AXIOS: -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+
+    <title>I'm Feeling Hungry</title>
+</head>
+
+<body class="">
+    <!-- <section class="hero is-link">
+        <div class="hero-body">
+            <p class="title" id="mainTitle">
+                Welcome to TVSearch:
+            </p>
+            <p class="subtitle" id="mainSubtitle">
+                Search for your favourite TV Shows!
+            </p>
+        </div>
+    </section> -->
+
+    <div class="container mt-5" id="searchContainer">
+        <form class="box" id="searchForm" method="POST" action="/">
+            <div class="field">
+                <label class="label title is-1 has-text-centered" id="mainHeading">I'm Feeling Hungry</label>
+                <label class="label subtitle is-8 has-text-centered mb-5" id="subHeading">Generate a random restaurant near you.</label>
+                <div class="control">
+                    <input class="input is-rounded" type="text" id="locationQuery" name="location" placeholder="Location">
+                </div>
+                <div class="control mt-3">
+                    <input class="input is-rounded" type="text" id="categoryQuery" name="terms" placeholder="Category">
+                </div>
+                <div class="control mt-3">
+                    <input class="input is-rounded" type="text" id="radiusQuery" name="radius" placeholder="Distance">
+                </div>
+            </div>
+            <button class="button is-danger is-rounded">Search</button>
+        </form>
+    </div>
+
+    <div class="container my-5 is-hidden" id="queryBox">
+        <div class="box" id="queriedContainer">
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
