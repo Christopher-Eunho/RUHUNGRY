@@ -14,12 +14,11 @@ export const handlePost = async (req, res) => {
     const {body : {terms, location, radius}} = req;
 
     const searchRequest = {
-        categories: "restaurants, All",
         term: terms,
         location: location,
         radius: parseInt(radius), 
         open_now: true,
-        limit: 5
+        categories: "restaurants, All"
       };
 
       // display search parameters on console
