@@ -4,18 +4,6 @@ import yelp from "yelp-fusion";
 const apiKey = '6xRLOT2hzxA37NUpkb0rsyv92fqMhNv8O_c-2_PC04Ryt--xS5xQUQru2A8orO8EojnhSO5mjsUyFUvGFr0MSosv6b4FDMItXK60QMwRmqb7U4yMZ4M_Et_NOTU_YnYx';
 const clientId = 'k0nxX4jW8f0f45dVAD5_tQ';
 
-
-var locationInput = '2366 Main Mall,  Vancouver, BC, Canada';
-var categoryInput = 'Chinese';
-var radiusInput = 1000;  // in metres (1000/2000/5000/10000)
-
-const searchRequest = {
-    terms: categoryInput,
-    location: locationInput,
-    radius: radiusInput, 
-    open_now: true
-  };
-
 export const handleHome = (req, res) => {
     res.sendFile(path.join(__dirname+'/../home.html'));
 }
@@ -28,7 +16,8 @@ export const handlePost = async (req, res) => {
         terms,
         location,
         radius: parseInt(radius), 
-        open_now: true
+        open_now: true,
+        categories: "restaurants, All"
       };
 
       // display search parameters on console
