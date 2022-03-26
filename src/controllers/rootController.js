@@ -8,7 +8,10 @@ export const handleHome = (req, res) => {
     res.sendFile(path.join(__dirname+'/../home.html'));
 }
 
-// receives input from html form and passes it to the get request 
+export const handleCSS = (req, res) => {
+  res.sendFile(path.join(__dirname+'/../app.css'));
+}
+
 export const handlePost = async (req, res) => {
     const {body : {terms, location, radius}} = req;
 
