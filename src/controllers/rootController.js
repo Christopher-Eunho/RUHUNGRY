@@ -8,7 +8,6 @@ export const handleHome = (req, res) => {
     res.sendFile(path.join(__dirname+'/../home.html'));
 }
 
-
 // receives input from html form and passes it to the get request 
 export const handlePost = async (req, res) => {
     const {body : {terms, location, radius}} = req;
@@ -21,18 +20,26 @@ export const handlePost = async (req, res) => {
         categories: "restaurants, All"
       };
 
-      // display search parameters on console
-      console.log(searchRequest);
-
-      const client = yelp.client(apiKey);
-      const response = await client.search(searchRequest);
-      const count = Object.keys(response.jsonBody.businesses).length;
-      const randomResult = Math.floor(Math.random() * count);
-      const firstResult = await response.jsonBody.businesses[randomResult]
-      const restaurantURL = await genGoogleLink(firstResult.coordinates.latitude, firstResult.coordinates.longitude, firstResult.name);
+    const client = yelp.client(apiKey);
+    const response = await client.search(searchRequest);
+    const count = Object.keys(response.jsonBody.businesses).length;
+    const randomResult = Math.floor(Math.random() * count);
+    const result = await response.jsonBody.businesses[randomResult]
       
-      console.log(response.jsonBody)
-      console.log(restaurantURL);
+    const restaurantURL = await genGoogleLink(result.coordinates.latitude, result.coordinates.longitude, result.name);
+    const name = result.name;
+    const image = result.image_url;
+    const rating = result.rating;
+    const phone_number = result.display_phone;
+    const price = result.price;
+
+    const location_array = result.location.display_address;
+    let result_location;
+    for (let i = 0; i < (location_array.length - 1); i++) {
+      result_location += location_array[i];
+    }
+
+    console.log(name, image, rating, phone_number, price, result_location);
 
     // pass x coord, y coord, and name string
     // returns google maps link to place
