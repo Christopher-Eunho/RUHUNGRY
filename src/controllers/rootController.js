@@ -5,7 +5,7 @@ const apiKey = '6xRLOT2hzxA37NUpkb0rsyv92fqMhNv8O_c-2_PC04Ryt--xS5xQUQru2A8orO8E
 const clientId = 'k0nxX4jW8f0f45dVAD5_tQ';
 
 
-var locationInput = '2366 Main Mall, Vancouver, BC, Canada';
+var locationInput = '2366 Main Mall,  Vancouver, BC, Canada';
 var categoryInput = 'Chinese';
 var radiusInput = 1000;  // in metres (1000/2000/5000/10000)
 
