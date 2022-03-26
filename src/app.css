@@ -66,3 +66,7 @@ body {
 #searchContainer {
     max-width: 500px;
 }
+
+#queryBox {
+	max-width: 700px;
+}
