@@ -33,7 +33,7 @@ export const handlePost = async (req, res) => {
     const phone_number = result.display_phone;
     const price = result.price;
 
-    //const alias = result.alias;
+    // const alias = result.alias;
     // const response2 = await client.business(alias);
     // const details = await response2.jsonBody;
     // const d = new Date();
@@ -44,9 +44,6 @@ export const handlePost = async (req, res) => {
     for (let i = 0; i < (location_array.length - 1); i++) {
       result_location += location_array[i] + " ";
     }
-
-    console.log(result_location);
-    console.log(restaurantURL);
 
     // pass x coord, y coord, and name string
     // returns google maps link to place
