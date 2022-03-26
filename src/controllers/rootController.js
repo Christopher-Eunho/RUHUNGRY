@@ -26,26 +26,27 @@ export const handlePost = async (req, res) => {
     const randomResult = Math.floor(Math.random() * count);
     const result = await response.jsonBody.businesses[randomResult]
       
-    // const restaurantURL = await genGoogleLink(result.coordinates.latitude, result.coordinates.longitude, result.name);
+    const restaurantURL = await genGoogleLink(result.coordinates.latitude, result.coordinates.longitude, result.name);
     const name = result.name;
     const image = result.image_url;
     const rating = result.rating;
     const phone_number = result.display_phone;
     const price = result.price;
-    const alias = result.alias;
 
-    const response2 = await client.business(alias);
-    const details = await response2.jsonBody;
-    const d = new Date();
+    //const alias = result.alias;
+    // const response2 = await client.business(alias);
+    // const details = await response2.jsonBody;
+    // const d = new Date();
     // console.log(details.hours.open[d.getDay()]);
 
     const location_array = result.location.display_address;
-    let result_location;
+    let result_location = "";
     for (let i = 0; i < (location_array.length - 1); i++) {
-      result_location += location_array[i];
+      result_location += location_array[i] + " ";
     }
 
-    // console.log(name, image, rating, phone_number, price, result_location);
+    console.log(result_location);
+    console.log(restaurantURL);
 
     // pass x coord, y coord, and name string
     // returns google maps link to place
