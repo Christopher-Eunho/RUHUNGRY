@@ -28,17 +28,6 @@
 </head>
 
 <body class="">
-    <!-- <section class="hero is-link">
-        <div class="hero-body">
-            <p class="title" id="mainTitle">
-                Welcome to TVSearch:
-            </p>
-            <p class="subtitle" id="mainSubtitle">
-                Search for your favourite TV Shows!
-            </p>
-        </div>
-    </section> -->
-
     <div class="container mt-5" id="searchContainer">
         <form class="box" id="searchForm" method="POST" action="/">
             <div class="field">
@@ -51,15 +40,31 @@
                     <input class="input is-rounded" type="text" id="categoryQuery" name="terms" placeholder="Category">
                 </div>
                 <div class="control mt-3">
-                    <input class="input is-rounded" type="text" id="radiusQuery" name="radius" placeholder="Distance">
+                    <input class="input is-rounded" type="text" id="radiusQuery" name="radius" placeholder="Distance (km)">
                 </div>
             </div>
             <button class="button is-danger is-rounded">Search</button>
         </form>
     </div>
 
-    <div class="container my-5 is-hidden" id="queryBox">
+    <!-- SET TO IS-HIDDEN -->
+    <div class="container my-5" id="queryBox"> 
         <div class="box" id="queriedContainer">
+            <div class="card">
+                <div class="card-image">
+                  <figure class="image is-5by3">
+                    <img src="https://media-cdn.tripadvisor.com/media/photo-s/09/84/ac/48/mcdonald-s.jpg" alt="Placeholder image">
+                  </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media-content">
+                      <p class="title is-4" id="displayTitleRatingPricing">McDonalds · 4.7☆ · $$$</p>
+                      <p class="subtitle is-6" id="displayAddress">1245, UBC Street, Vancouver, Canada</p>
+                      <p class="subtitle is-6 is-italic" id="displayHours">Open 10am - 9pm</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </div>
     </div>
 
