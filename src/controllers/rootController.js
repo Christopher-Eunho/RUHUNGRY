@@ -20,6 +20,7 @@ export const handleHome = (req, res) => {
     res.sendFile(path.join(__dirname+'/../home.html'));
 }
 
+// receives input from html form and passes it to the get request 
 export const handlePost = async (req, res) => {
     const {body : {terms, location, radius}} = req;
 
@@ -30,50 +31,25 @@ export const handlePost = async (req, res) => {
         open_now: true
       };
 
+      // display search parameters on console
       console.log(searchRequest);
+
       const client = yelp.client(apiKey);
       const response = await client.search(searchRequest);
-    //   console.log(response);
       const count = Object.keys(response.jsonBody.businesses).length;
       const randomResult = Math.floor(Math.random() * count);
-      const firstResult = await response.jsonBody.businesses[randomResult];
+      const firstResult = await response.jsonBody.businesses[randomResult]
+      const restaurantURL = await genGoogleLink(firstResult.longitude, firstResult.latitude, firstResult.name);
+      
     
       console.log(firstResult);
+      console.log(restaurantURL);
 
-
-
-    //   var firstResult;
-    // var prettyJson;
-
-    // var name;
-    // var image;
-    // var rating;
-
-    // var phone_number;
-    // var price;
-
-    // const response client.search(searchRequest);
-
-
-    // client.search(searchRequest).then(response => {
-    // prettyJson = JSON.stringify(firstResult, null, 4);
-    // // console.log(prettyJson);
-    // }).catch(e => {
-    // console.log(e);
-    // }).then(next => {
-    // name = firstResult.name;
-    // image = firstResult.image_url;
-    // rating = firstResult.rating;
-    // location = firstResult.location.display_address;
-    // phone_number = firstResult.display_phone;
-    // price = firstResult.price;
-    // console.log(name);
-    // console.log(image);
-    // console.log(rating);
-    // for (let i = 0; i < location.length; i++) {
-    //     console.log(location[i]);
-    // }
-    // console.log(phone_number);
-    // console.log(price);
-    // });
+    // pass x coord, y coord, and name string
+    // returns google maps link to place
+    function genGoogleLink(x, y, name) {
+        var link = "https://www.google.com/maps/search/?api=1&query=";
+        link = link + String(x) + "%2C" + String(y) + "%2C+" + String(name);
+        return link;
+    }
 }
