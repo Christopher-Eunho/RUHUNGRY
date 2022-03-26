@@ -55,7 +55,7 @@ export const handlePost = async (req, res) => {
     // const response client.search(searchRequest);
 
 
-    // client.search(searchRequest).then(response => {
+    // client.search(searchRequest).then(response => {`
     // prettyJson = JSON.stringify(firstResult, null, 4);
     // // console.log(prettyJson);
     // }).catch(e => {
