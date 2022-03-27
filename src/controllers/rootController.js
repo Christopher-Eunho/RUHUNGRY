@@ -26,7 +26,8 @@ export const handlePost = async (req, res) => {
         location: location,
         radius: parseInt(radius)*1000, 
         open_now: true,
-        categories: "restaurants, All"
+        categories: "restaurants, All",
+        limit: 5
       };
 
     const client = yelp.client(apiKey);
