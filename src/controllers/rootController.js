@@ -4,8 +4,13 @@ import yelp from "yelp-fusion";
 const apiKey = '6xRLOT2hzxA37NUpkb0rsyv92fqMhNv8O_c-2_PC04Ryt--xS5xQUQru2A8orO8EojnhSO5mjsUyFUvGFr0MSosv6b4FDMItXK60QMwRmqb7U4yMZ4M_Et_NOTU_YnYx';
 const clientId = 'k0nxX4jW8f0f45dVAD5_tQ';
 
+// export const handleHome = (req, res) => {
+//     res.sendFile(path.join(__dirname+'/../home.html'));
+// }
+
+
 export const handleHome = (req, res) => {
-    res.sendFile(path.join(__dirname+'/../home.html'));
+  res.render("home", {showResult:false});
 }
 
 export const handleCSS = (req, res) => {
@@ -14,11 +19,12 @@ export const handleCSS = (req, res) => {
 
 export const handlePost = async (req, res) => {
     const {body : {terms, location, radius}} = req;
+    console.log(req.body);
 
     const searchRequest = {
         term: terms,
         location: location,
-        radius: parseInt(radius), 
+        radius: parseInt(radius)*1000, 
         open_now: true,
         categories: "restaurants, All"
       };
@@ -36,17 +42,27 @@ export const handlePost = async (req, res) => {
     const phone_number = result.display_phone;
     const price = result.price;
 
-    // const alias = result.alias;
-    // const response2 = await client.business(alias);
-    // const details = await response2.jsonBody;
-    // const d = new Date();
-    // console.log(details.hours.open[d.getDay()]);
-
     const location_array = result.location.display_address;
-    let result_location = "";
+    let address = "";
     for (let i = 0; i < (location_array.length - 1); i++) {
-      result_location += location_array[i] + " ";
+      address += location_array[i] + " ";
     }
+    console.log(address);
+    console.log(price);
+    console.log(restaurantURL);
+    console.log(typeof rating);
+
+    const starRating =  "⭐".repeat(parseInt(rating));
+    console.log(starRating);
+    
+    res.render("home", {showResult:true, name, 
+      image, 
+      starRating, 
+      price, 
+      address,
+      restaurantURL});
+
+
 
     // pass x coord, y coord, and name string
     // returns google maps link to place
